@@ -35,7 +35,7 @@ and open the template in the editor.
           document.write("<br/>");
           secondFunction();
           document.write("<br/>");
-          
+        
           document.write("<br/>");
           
           document.write("<br/>");
@@ -43,5 +43,48 @@ and open the template in the editor.
           document.write("<br/>");
       </script>
       
+      <!-- Events -->
+      <form method="POST" action="t.cgi" onsubmit="return validation()">
+         <input type="submit" value="Submit" />
+      </form>   
+      <!--
+      <div onmouseover="over()" onmouseout="out()">
+         <h2> This is inside the division </h2>
+      </div>
+      -->
+      
+      <!-- Cookies -->
+      <form name="myform" action="">
+         Enter name: <input type="text" name="customer"/>
+         <input type="button" value="Set Cookie" onclick="WriteCookie();"/>
+      </form>
+ 
+     <form name="myform" action="">
+         <p> click the following button and see the result:</p>
+         <input type="button" value="Get Cookie" onclick="ReadCookie()"/>
+     </form>  
+
+      <!-- Page redirection -->
+      <form>
+         <input type="button" value="Redirect Me" onclick="RedirectMsg();" />
+      </form>  
+
+      <!-- Dialogs -->
+      <form>
+         <input type="button" value="Click Me" onclick="Warn();" />
+      </form>
+
+      <form>
+         <input type="button" value="Click Me" onclick="getConfirmation();" />
+      </form>
+
+      <form>
+         <input type="button" value="Click Me" onclick="getValue();" />
+      </form>  
+      
+      <!-- Print -->
+      <form>
+         <input type="button" value="Print" onclick="window.print()" />
+      </form>
     </body>
 </html>

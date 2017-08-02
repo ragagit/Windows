@@ -143,3 +143,103 @@ function labelExample(){
             result = concatenate('Zara', 'Ali');
             document.write (result );
          }
+         
+//Events 
+//onclick onsubmit onmouseover onmouseout
+            function validation() {
+               document.write("Form validated");
+               return true;
+            }
+            function over() {
+               alert("Mouse Over");
+            }
+            
+            function out() {
+               alert("Mouse Out");
+            }    
+// Cookies            
+/*
+  Cookies are a plain text data record of 5 variable-length fields −
+  Expires − The date the cookie will expire. If this is blank, the cookie will expire when the visitor quits the browser.
+  Domain − The domain name of your site.
+  Path − The path to the directory or web page that set the cookie. This may be blank if you want to retrieve the cookie from any directory or page.
+  Secure − If this field contains the word "secure", then the cookie may only be retrieved with a secure server. If this field is blank, no such restriction exists.
+  Name=Value − Cookies are set and retrieved in the form of key-value pairs
+  document.cookie = "key1=value1;key2=value2;expires=date";                      
+                        
+ */
+            function WriteCookie()
+            {
+                //setting expiry date
+               var now = new Date();
+               now.setMonth( now.getMonth() + 1 );
+               
+               if( document.myform.customer.value == "" ){
+                  alert("Enter some value!");
+                  return;
+               }
+               cookievalue= escape(document.myform.customer.value) + ";";
+               document.cookie="name=" + cookievalue;
+               document.write ("Setting Cookies : " + "name=" + cookievalue );
+            }
+            
+             function ReadCookie()
+            {
+               var allcookies = document.cookie;
+               document.write ("All Cookies : " + allcookies );
+               
+               // Get all the cookies pairs in an array
+               cookiearray = allcookies.split(';');
+               
+               // Now take key value pair out of this array
+               for(var i=0; i<cookiearray.length; i++){
+                  name = cookiearray[i].split('=')[0];
+                  value = cookiearray[i].split('=')[1];
+                  document.write ("Key is : " + name + " and Value is : " + value);
+               }
+            } 
+            
+            //To delete a cookie you just need to set the expiry date to a time in the past.
+            //   var now = new Date();
+            //   now.setMonth( now.getMonth() + 1 );
+            
+// Page redirection
+
+           function Redirect() {
+            var browsername=navigator.appName;
+                if( browsername == "Netscape" )
+                {
+                    window.location="http://www.location.com/ns.htm";
+                }
+
+                window.location="http://www.tutorialspoint.com";
+            }
+            
+         function RedirectMsg(){
+             
+                document.write("You will be redirected to main page in 10 sec.");
+                setTimeout('Redirect()', 10000);
+         }
+    
+// Dialog Boxes
+            function Warn() {
+               alert ("This is a warning message!");
+               document.write ("This is a warning message!");
+            }
+            function getConfirmation(){
+               var retVal = confirm("Do you want to continue ?");
+               if( retVal == true ){
+                  document.write ("User wants to continue!");
+                  return true;
+               }
+               else{
+                  document.write ("User does not want to continue!");
+                  return false;
+               }
+            }
+            function getValue(){
+               var retVal = prompt("Enter your name : ", "your name here");
+               document.write("You have entered : " + retVal);
+            }
+            
+//Print
