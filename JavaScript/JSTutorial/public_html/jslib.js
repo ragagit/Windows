@@ -243,3 +243,132 @@ function labelExample(){
             }
             
 //Print
+    function printMypage(){
+        window.print();
+    }
+    
+//Objects
+
+// JavaScript is a object oreinted programming, Encapsulation, Aggregation, Inheritance and Polymorfism
+// Objects has methids, use new and this to refer to the object itself
+// All objects are descendent of Object
+
+function creatObject(){
+           var book = new Object();   // Create the object
+         book.subject = "Perl"; // Assign properties to the object
+         book.author  = "Mohtashim";
+         
+         return book;
+}
+
+function sayHi(){
+    document.write("<br />");
+    document.writeln("Hi from object method");
+}
+
+function createObject2(){
+    this.subject = "Perl";
+    this.author = "Mohtashim";
+    this.sayHi = sayHi;
+}
+// We can use with to avoid to refernce the object within the block
+function createObject3(){
+    with(this){
+        title = "Book";
+        type = "fiction";
+        pages = "200";
+    }
+}
+
+//JavaScript native objects Number, String, Array, Boolean, Date, Math, RegExp
+
+// Error handling
+function errorHandlingExample(){
+
+               var a = 100;
+               
+               try {
+                  alert("Value of variable a is : " + a );
+               }
+               
+               catch ( e ) {
+                  alert("Error: " + e.description );
+               }
+               
+               finally {
+                  alert("Finally block will always execute!" );
+               }         
+}
+//throw
+            function myFunc()
+            {
+               var a = 100;
+               var b = 0;
+               
+               try{
+                  if ( b == 0 ){
+                     throw( "Divide by zero error." ); 
+                  }
+                  
+                  else
+                  {
+                     var c = a / b;
+                  }
+               }
+               
+               catch ( e ) {
+                  alert("Error: " + e );
+               }
+            }
+            
+// Validation
+function validate()
+      {
+      
+         if( document.myForm.Name.value == "" )
+         {
+            alert( "Please provide your name!" );
+            document.myForm.Name.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.EMail.value == "" )
+         {
+            alert( "Please provide your Email!" );
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.Zip.value == "" ||
+         isNaN( document.myForm.Zip.value ) ||
+         document.myForm.Zip.value.length != 5 )
+         {
+            alert( "Please provide a zip in the format #####." );
+            document.myForm.Zip.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.Country.value == "-1" )
+         {
+            alert( "Please provide your country!" );
+            return false;
+         }
+         return( true );
+      }
+      
+function validateEmail()
+      {
+         var emailID = document.myForm.EMail.value;
+         atpos = emailID.indexOf("@");
+         dotpos = emailID.lastIndexOf(".");
+         
+         if (atpos < 1 || ( dotpos - atpos < 2 )) 
+         {
+            alert("Please enter correct email ID")
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+         return( true );
+      }
+      
+      
