@@ -142,6 +142,53 @@ and open the template in the editor.
             </tr>
             
          </table>
-      </form>   
+      </form> 
+        <script>
+                window.onload =init; 
+        </script>
+      <form>
+         <img id="myImage" src="./images/bird_icon.gif" />
+         <p>Click the buttons below to handle animation</p>
+         <input type="button" value="Start" onclick="moveRight();" />
+         <input type="button" value="Stop" onclick="stop();" />
+      </form>
+        <script> 
+        loadImgs();
+        </script>  
+      <a href="#" onMouseOver="document.myImage2.src=image2.src;" onMouseOut="document.myImage2.src=image1.src;">
+      <img name="myImage2" alt="No image" src="./images/bird_icon.gif" />
+      </a>
+      <form name="myform">
+         <input type="text" name="stage" size="20" />
+      </form>
+      
+      <!-- Create  Mappings -->
+      <img src="/images/usemap.gif" alt="HTML Map" border="0" usemap="#tutorials"/>
+      
+      <map name="tutorials">
+         <area shape="poly" 
+            coords="74,0,113,29,98,72,52,72,38,27"
+            href="/perl/index.htm" alt="Perl Tutorial"
+            target="_self" 
+            onMouseOver="showTutorial('perl')" 
+            onMouseOut="showTutorial('')"/>
+         
+         <area shape="rect" 
+            coords="22,83,126,125"
+            href="/html/index.htm" alt="HTML Tutorial" 
+            target="_self" 
+            onMouseOver="showTutorial('html')" 
+            onMouseOut="showTutorial('')"/>
+         
+         <area shape="circle" 
+            coords="73,168,32"
+            href="/php/index.htm" alt="PHP Tutorial"
+            target="_self" 
+            onMouseOver="showTutorial('php')" 
+            onMouseOut="showTutorial('')"/>
+      </map>   
+      <script>
+      browserType();
+      </script>
     </body>
 </html>

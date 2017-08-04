@@ -371,4 +371,70 @@ function validateEmail()
          return( true );
       }
       
+            var imgObj = null;
+            var animate ;
+            
+            function init(){
+               imgObj = document.getElementById('myImage');
+               imgObj.style.position= 'relative'; 
+               imgObj.style.left = '0px'; 
+            }
+            
+            function moveRight(){
+               imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+               animate = setTimeout(moveRight,20); // call moveRight in 20msec
+            }
+            
+            function stop(){
+               clearTimeout(animate);
+               imgObj.style.left = '0px'; 
+            }
+            
+            var image1, image2;
+            function loadImgs(){
+              if(document.images){
+               image1 = new Image(); // Preload an image
+               image1.src = "./images/bird_icon.gif";
+               image2 = new Image(); // Preload second image
+               image2.src = "./images/brand_logo.gif";
+             }
+         }
+           
+    
+    // Use www.jslint.com to validate your JavaScript code.
+    
+    function browserType(){
+                    var userAgent   = navigator.userAgent;
+            var opera       = (userAgent.indexOf('Opera') != -1);
+            var ie          = (userAgent.indexOf('MSIE') != -1);
+            var gecko       = (userAgent.indexOf('Gecko') != -1);
+            var netscape    = (userAgent.indexOf('Mozilla') != -1);
+            var version     = navigator.appVersion;
+            
+            if (opera){
+               document.write("Opera based browser");
+               // Keep your opera specific URL here.
+            }
+            
+            else if (gecko){
+               document.write("Mozilla based browser");
+               // Keep your gecko specific URL here.
+            }
+            
+            else if (ie){
+               document.write("IE based browser");
+               // Keep your IE specific URL here.
+            }
+            
+            else if (netscape){
+               document.write("Netscape based browser");
+               // Keep your Netscape specific URL here.
+            }
+            
+            else{
+               document.write("Unknown browser");
+            }
+            // You can include version to along with any above condition.
+            document.write("<br /> Browser version info : " + version );
+    }
       
