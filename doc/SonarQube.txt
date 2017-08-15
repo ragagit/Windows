@@ -1,0 +1,108 @@
+SonarQube Installation and Configuration
+
+1.- Install SonarQube
+
+https://www.sonarqube.org/downloads/
+
+2.- Install Sonar Scanner
+
+https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
+
+3.- Create a project file called sonar-project.properties, with the following fields and place it in your project directory
+
+# must be unique in a given SonarQube instance
+sonar.projectKey=my:project
+# this is the name and version displayed in the SonarQube UI. Was mandatory prior to SonarQube 6.1.
+sonar.projectName=My project
+sonar.projectVersion=1.0
+ 
+# Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
+# This property is optional if sonar.modules is set. 
+sonar.sources=.
+ 
+# Encoding of the source code. Default is default system encoding
+#sonar.sourceEncoding=UTF-8
+
+4.- Run
+
+sonar-scanner
+
+5.- To analyze a Maven project add the following in your settings.xm in .m2 or $MAVEN_HOME/conf
+
+<settings>
+    <pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+    </pluginGroups>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                  http://myserver:9000
+                </sonar.host.url>
+            </properties>
+        </profile>
+     </profiles>
+</settings>
+
+mvn clean verify sonar:sonar
+ 
+# In some situation you may want to run sonar:sonar goal as a dedicated step. Be sure to use install as first step for multi-module projects
+mvn clean install
+mvn sonar:sonar
+
+6.- For ant project
+
+<project name="My Project" default="all" basedir="." xmlns:sonar="antlib:org.sonar.ant">
+...
+  
+<!-- Define the SonarQube global properties (the most usual way is to pass these properties via the command line) -->
+<property name="sonar.host.url" value="http://localhost:9000" />
+ 
+...
+ 
+<!-- Define the SonarQube project properties -->
+<property name="sonar.projectKey" value="org.sonarqube:sonarqube-scanner-ant" />
+<property name="sonar.projectName" value="Example of SonarQube Scanner for Ant Usage" />
+<property name="sonar.projectVersion" value="1.0" />
+<property name="sonar.sources" value="src" />
+<property name="sonar.java.binaries" value="build" />
+<property name="sonar.java.libraries" value="lib/*.jar" />
+...
+ 
+<!-- Define SonarQube Scanner for Ant Target -->
+<target name="sonar">
+    <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+        <!-- Update the following line, or put the "sonarqube-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
+        <classpath path="path/to/sonar/ant/task/lib/sonarqube-ant-task-*.jar" />
+    </taskdef>
+ 
+    <!-- Execute SonarQube Scanner for Ant Analysis -->
+    <sonar:sonar />
+</target>
+...
+
+Run the following command from the project base directory to launch the analysis:
+ant sonar
+
+7.- C++ plugin can be downloded
+
+https://github.com/SonarOpenCommunity/sonar-cxx/releases
+
+Install the plugin
+
+https://docs.sonarqube.org/display/SONAR/Installing+a+Plugin
+https://github.com/SonarOpenCommunity/sonar-cxx/wiki/Installation
+
+Run the analysis
+
+https://github.com/SonarOpenCommunity/sonar-cxx/wiki/Running-the-analysis
+
+
+
+
+
