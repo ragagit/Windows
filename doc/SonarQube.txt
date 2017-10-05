@@ -4,9 +4,30 @@ SonarQube Installation and Configuration
 
 https://www.sonarqube.org/downloads/
 
+Documentation
+
+https://docs.sonarqube.org/display/SONAR/Documentation/
+
+To start SonarQube go to
+
+C:\Program Files\sonarqube-6.5\bin\windows-x86-64 and run StartSonar.bat
+
+then go to
+
+Log in to http://localhost:9000 with System Administrator credentials (admin/admin) and follow the tutorial to analyze your first project.
+
+The Administrator tab shows the Languages (plugins) installed
+
 2.- Install Sonar Scanner
 
 https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
+
+Add bin directory to the PATH
+
+C:\Program Files\sonar-scanner-3.0.3.778-windows\bin
+
+2a.- Install the plugins by droping the jar file in c:\sonar location\extensions\plugins
+	then restart sonar 
 
 3.- Create a project file called sonar-project.properties, with the following fields and place it in your project directory
 
@@ -23,9 +44,32 @@ sonar.sources=.
 # Encoding of the source code. Default is default system encoding
 #sonar.sourceEncoding=UTF-8
 
+
+3a.- For Sonar Community
+
+open an MS prompt by going to start choose Visual Studio 2017 x64 Native tools. The build the project like this:
+
+MSBuild PrintWhere.sln /t:rebuild;WarningLevel=3 /fileLogger /fileLoggerParameters:WarningsOnly;LogFile=pwc.log;Verbosity=detailed;Encoding=UTF-8
+
+To retrieve compiler information
+ 
+msbuild.exe /v:Detailed  printwhere.sln > buildlog.log
+
+============= C++ Community sonar-project.properties example =======
+
+sonar.host.url=http://localhost:9000
+sonar.projectKey=pwckey
+sonar.sources=. 
+sonar.cxx.compiler.parser=Visual C++
+sonar.cxx.compiler.reportPath=*.log
+sonar.cxx.compiler.charset=UTF-8
+sonar.cxx.compiler.regex=^.*>(?<filename>.*)\\((?<line>[0-9]+)\\):\\x20warning\\x20(?<id>C\\d\\d\\d\\d):(?<message>.*)$
+
+====================================================================
+
 4.- Run
 
-sonar-scanner
+sonar-scanner where the sonar-project.properties file is located
 
 5.- To analyze a Maven project add the following in your settings.xm in .m2 or $MAVEN_HOME/conf
 
