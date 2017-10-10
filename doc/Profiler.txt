@@ -1,0 +1,14 @@
+C++ VS Profiling
+
+1.- Compile code and make sure to generate pdb file by setting 
+
+Configuration Properties -> Linker -> Debugging -> Generate Program Database File
+
+
+2.- Change to Release mode
+
+3.- Go to Analyze -> Profiler -> New Performance Session
+
+4.- Switch to your exe
+
+6.- If there are problems with no symbols found, make sure you're pointing to the right location of your pdb file. 

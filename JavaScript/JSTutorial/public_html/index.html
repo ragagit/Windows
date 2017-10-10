@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!--
+
+-->
+
+
+<html>
+    <head>
+        <title>"JavaScript Tutorial"</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="jslib.js" ></script>
+    </head>
+    <body>
+
+      <input type="button" onclick="sayHelloFromLib()" value="Say Hello from Lib" />
+
+      <script type="text/javascript">
+          ifelseexample();
+          document.write("<br/>");
+          switchexample();
+          document.write("<br/>");
+          whileExample();
+          document.write("<br/>");
+          forExample();
+          document.write("<br/>");
+          forinExample();
+          document.write("<br/>");
+          labelExample();
+          document.write("<br/>");
+          secondFunction();
+          document.write("<br/>");
+        
+          document.write("<br/>");
+          
+          document.write("<br/>");
+          
+          document.write("<br/>");
+      </script>
+      
+      <!-- Events -->
+      <form method="POST" action="t.cgi" onsubmit="return validation()">
+         <input type="submit" value="Submit" />
+      </form>   
+      <!--
+      <div onmouseover="over()" onmouseout="out()">
+         <h2> This is inside the division </h2>
+      </div>
+      -->
+      
+      <!-- Cookies -->
+      <form name="myform" action="">
+         Enter name: <input type="text" name="customer"/>
+         <input type="button" value="Set Cookie" onclick="WriteCookie();"/>
+      </form>
+ 
+     <form name="myform" action="">
+         <p> click the following button and see the result:</p>
+         <input type="button" value="Get Cookie" onclick="ReadCookie()"/>
+     </form>  
+
+      <!-- Page redirection -->
+      <form>
+         <input type="button" value="Redirect Me" onclick="RedirectMsg();" />
+      </form>  
+
+      <!-- Dialogs -->
+      <form>
+         <input type="button" value="Click Me" onclick="Warn();" />
+      </form>
+
+      <form>
+         <input type="button" value="Click Me" onclick="getConfirmation();" />
+      </form>
+
+      <form>
+         <input type="button" value="Click Me" onclick="getValue();" />
+      </form>  
+      
+      <!-- Print -->
+      <form>
+         <input type="button" value="Print" onclick="window.print()" />
+      </form>
+      
+      <!-- Objects -->
+      <script>
+          var tmp = new createObject2();
+          document.write(tmp.author);
+          tmp.sayHi();
+      </script>
+      
+      <!-- Error Handling -->
+      <script>
+             window.onerror = function (msg, url, line) {
+               alert("Message : " + msg );
+               alert("url : " + url );
+               alert("Line number : " + line );
+            };
+            myFunc();
+      </script>
+ <img src="myimage.gif" alt="noimage" onerror="alert('An error occurred loading the image.')" />
+ 
+    <!-- Validation -->
+       <form action="/cgi-bin/test.cgi" name="myForm" onsubmit="return(validate());">
+         <table cellspacing="2" cellpadding="2" border="1">
+            
+            <tr>
+               <td align="right">Name</td>
+               <td><input type="text" name="Name" /></td>
+            </tr>
+            
+            <tr>
+               <td align="right">EMail</td>
+               <td><input type="text" name="EMail" /></td>
+            </tr>
+            
+            <tr>
+               <td align="right">Zip Code</td>
+               <td><input type="text" name="Zip" /></td>
+            </tr>
+            
+            <tr>
+               <td align="right">Country</td>
+               <td>
+                  <select name="Country">
+                     <option value="-1" selected>[choose yours]</option>
+                     <option value="1">USA</option>
+                     <option value="2">UK</option>
+                     <option value="3">INDIA</option>
+                  </select>
+               </td>
+            </tr>
+            
+            <tr>
+               <td align="right"></td>
+               <td><input type="submit" value="Submit" /></td>
+            </tr>
+            
+         </table>
+      </form> 
+        <script>
+                window.onload =init; 
+        </script>
+      <form>
+         <img id="myImage" src="./images/bird_icon.gif" />
+         <p>Click the buttons below to handle animation</p>
+         <input type="button" value="Start" onclick="moveRight();" />
+         <input type="button" value="Stop" onclick="stop();" />
+      </form>
+        <script> 
+        loadImgs();
+        </script>  
+      <a href="#" onMouseOver="document.myImage2.src=image2.src;" onMouseOut="document.myImage2.src=image1.src;">
+      <img name="myImage2" alt="No image" src="./images/bird_icon.gif" />
+      </a>
+      <form name="myform">
+         <input type="text" name="stage" size="20" />
+      </form>
+      
+      <!-- Create  Mappings -->
+      <img src="/images/usemap.gif" alt="HTML Map" border="0" usemap="#tutorials"/>
+      
+      <map name="tutorials">
+         <area shape="poly" 
+            coords="74,0,113,29,98,72,52,72,38,27"
+            href="/perl/index.htm" alt="Perl Tutorial"
+            target="_self" 
+            onMouseOver="showTutorial('perl')" 
+            onMouseOut="showTutorial('')"/>
+         
+         <area shape="rect" 
+            coords="22,83,126,125"
+            href="/html/index.htm" alt="HTML Tutorial" 
+            target="_self" 
+            onMouseOver="showTutorial('html')" 
+            onMouseOut="showTutorial('')"/>
+         
+         <area shape="circle" 
+            coords="73,168,32"
+            href="/php/index.htm" alt="PHP Tutorial"
+            target="_self" 
+            onMouseOver="showTutorial('php')" 
+            onMouseOut="showTutorial('')"/>
+      </map>   
+      <script>
+      browserType();
+      </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+/JavaScript/JSTutorial/nbproject/private/
+Builds
+*Debug*
+!*gpdDebug.c
+Release
+Release Win32
+Release x64
+ReleasePWC
+NT_Release
+Release_unicode
+Release_ANSI
+Output
+*.user
+*.ncb
+*.suo
+*.bin
+*.aps
+*.obj
+*.orig
+*.lib
+*.pch
+*.idb
+*.sdf
+*.opensdf
+*.ipch
+*.tlb
+.vs
