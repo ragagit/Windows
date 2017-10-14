@@ -25,3 +25,6 @@ Output
 *.ipch
 *.tlb
 .vs
+/Spring/junit-in-5-steps/nbproject/private/
+/Spring/junit-in-5-steps/build/
+/Spring/mockito-demo/nbproject/
