@@ -9,36 +9,44 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//1. Extends javax.servlet.HttpServlet
+//2. @WebServlet (urlPatterns="login.do")
+//3. doGet(HttpServletRequest request, HttpServletResponse response)
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
     
-@Override
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws IOException, ServletException {
-            
-            PrintWriter out = response.getWriter();
-            out.println("<html>");          
-            out.println("<head>");
-            out.println("<title>Yahoo!!!!</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("My First Servlet");
-            out.println("</body>");                                  
-            out.println("</html>");
-            
-        }
+//@Override
+//	protected void doGet(HttpServletRequest request,
+//			HttpServletResponse response) throws IOException, ServletException {
+//            
+//            PrintWriter out = response.getWriter();
+//            out.println("<html>");          
+//            out.println("<head>");
+//            out.println("<title>Yahoo!!!!</title>");
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("My First Servlet");
+//            out.println("</body>");                                  
+//            out.println("</html>");
+//            
+//        }
 
     
 
-//	private LoginService service = new LoginService();
-//
-//	@Override
-//	protected void doGet(HttpServletRequest request,
-//			HttpServletResponse response) throws IOException, ServletException {
-//		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
-//				request, response);
-//	}
-//
+	//private LoginService service = new LoginService();
+
+	@Override
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws IOException, ServletException {
+            
+            String name = request.getParameter("name");
+            
+            request.setAttribute("name", name);
+            
+		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
+				request, response);
+	}
+
 //	@Override
 //	protected void doPost(HttpServletRequest request,
 //			HttpServletResponse response) throws IOException, ServletException {
