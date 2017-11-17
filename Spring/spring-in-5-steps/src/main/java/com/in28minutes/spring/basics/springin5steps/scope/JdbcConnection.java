@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 //This scope doesn't return a different bean per called as PersonDOA doesn't
 //have SCOPE.Prototype. We just want to create an diff instance of Jdbc not personDOA
 //@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-//So we use proxyMode
+//So we use proxyMode when one component is Prototype and the second is not
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE,
         proxyMode = ScopedProxyMode.TARGET_CLASS)
 class JdbcConnection {

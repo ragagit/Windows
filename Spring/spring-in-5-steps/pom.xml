@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-in-5-steps</name>
+	<name>Spring</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
